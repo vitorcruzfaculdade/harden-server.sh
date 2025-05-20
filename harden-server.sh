@@ -5,14 +5,14 @@
 # License: GPL v3.0
 # Downloaded from https://github.com/vitorcruzfaculdade/harden-server.sh
 
-VERSION="1.0.8"
+VERSION="1.0.9"
 set -e
 
 print_banner() {
   echo ""
   echo "┌─────────────────────────────────────────────────────────────────────────────┐"
   echo "│  harden-server.sh    v$VERSION                                                |"
-  echo "│  Vitor Cruz's disable Ubuntu Telemetry for Ubuntu Server 24.04              |"
+  echo "│  Vitor Cruz's basic Hardening/Disable Telemetry for Ubuntu Server 24.04     |"
   echo "│  By Vitor Cruz · License: GPL v3.0                                          |"
   echo "|  Downloaded from https://github.com/vitorcruzfaculdade/harden-server.sh     |"
   echo "└─────────────────────────────────────────────────────────────────────────────┘"
