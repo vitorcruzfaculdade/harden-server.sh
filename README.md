@@ -30,7 +30,7 @@ This script is intended for clean or lightly configured Ubuntu Server environmen
 Download and add permission:
 
 ```bash
-wget -c https://github.com/vitorcruzfaculdade/harden-server.sh/releases/download/1.0.6/harden-server.sh
+wget -c https://github.com/vitorcruzfaculdade/harden-server.sh/releases/download/1.0.7/harden-server.sh
 chmod +x harden-server.sh
 ````
 
