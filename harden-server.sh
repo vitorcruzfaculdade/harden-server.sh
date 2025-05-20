@@ -5,7 +5,7 @@
 # License: GPL v3.0
 # Downloaded from https://github.com/vitorcruzfaculdade/harden-server.sh
 
-VERSION="1.0.6"
+VERSION="1.0.7"
 set -e
 
 print_banner() {
@@ -209,11 +209,11 @@ install_zabbix_agent() {
 
     echo ""  
     echo "Enabling and starting the Zabbix agent"
-    sudo systemctl restart zabbix-agent
-    sudo systemctl enable zabbix-agent
+    sudo systemctl restart zabbix-agent2
+    sudo systemctl enable zabbix-agent2
     
     echo ""
-    echo "Zabbix agent installed and started - You may need to set your Zabbix server IP in /etc/zabbix-agent/ config file and/or UFW to Allow Zabbix conections."
+    echo "Zabbix Agent 2 installed and started - You may need to set your Zabbix server IP in /etc/zabbix-agent/ config file and/or UFW to Allow Zabbix conections."
    else
     echo ""
     echo "Skipping Zabbix agent installation."
