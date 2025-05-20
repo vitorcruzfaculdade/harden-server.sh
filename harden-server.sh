@@ -5,7 +5,7 @@
 # License: GPL v3.0
 # Downloaded from https://github.com/vitorcruzfaculdade/harden-server.sh
 
-VERSION="1.0.5"
+VERSION="1.0.6"
 set -e
 
 print_banner() {
@@ -255,7 +255,7 @@ harden_ssh() {
   sudo sed -i 's/^#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
   
   echo "Reloading SSH to apply changes..."
-  sudo systemctl reload sshd
+  sudo systemctl reload ssh
   echo ""
   echo "SSH hardened: root login disabled, password authentication disabled."
 }
