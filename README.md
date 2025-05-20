@@ -1,4 +1,3 @@
-````markdown
 # harden-server.sh
 
 **harden-server.sh** is a Bash script designed to harden and optimize Ubuntu Server 24.04 and newer.  
