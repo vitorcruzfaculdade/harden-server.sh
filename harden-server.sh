@@ -5,7 +5,7 @@
 # License: GPL v3.0
 # Downloaded from https://github.com/vitorcruzfaculdade/harden-server.sh
 
-VERSION="1.0.7"
+VERSION="1.0.8"
 set -e
 
 print_banner() {
