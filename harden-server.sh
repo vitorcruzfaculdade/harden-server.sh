@@ -51,7 +51,7 @@ disable_telemetry() {
   echo "Telemetry and background reporting fully disabled."
   echo ""
   if confirm "Do you want to disable Avahi (zeroconf/Bonjour/SSDP broadcasting)?"; then
-    sudo systemctl disable avahi-daemon.socket avahi-daemon.service --now
+    sudo systemctl disable avahi-daemon.socket avahi-daemon.service --now || true
     echo "Avahi broadcasting disabled."
   fi
 }
@@ -245,19 +245,25 @@ harden_system() {
 harden_ssh() {
   echo ""
   echo "Hardening SSH..."
-  
-  echo ""
-  echo "Disable root login"
-  sudo sed -i 's/^#PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
-  
-  echo ""
-  echo "Disable password-based authentication, only allow key-based login"
-  sudo sed -i 's/^#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
-  
+
+  if confirm "Do you want to disable root login via SSH?"; then
+    sudo sed -i 's/^#\?PermitRootLogin.*/PermitRootLogin no/' /etc/ssh/sshd_config
+    echo "Root login disabled."
+  else
+    echo "Skipped disabling root login."
+  fi
+
+  if confirm "Do you want to disable password authentication (enforce key-based auth)?"; then
+    sudo sed -i 's/^#\?PasswordAuthentication.*/PasswordAuthentication no/' /etc/ssh/sshd_config
+    echo "Password authentication disabled."
+  else
+    echo "Skipped disabling password authentication."
+  fi
+
   echo "Reloading SSH to apply changes..."
   sudo systemctl reload ssh
   echo ""
-  echo "SSH hardened: root login disabled, password authentication disabled."
+  echo "SSH hardening complete."
 }
 
 enable_automatic_updates() {
