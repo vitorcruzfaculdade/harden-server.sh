@@ -5,7 +5,7 @@
 # License: GPL v3.0
 # Downloaded from https://github.com/vitorcruzfaculdade/harden-server.sh
 
-VERSION="1.0.9"
+VERSION="1.0.10"
 set -e
 
 print_banner() {
@@ -40,7 +40,7 @@ disable_telemetry() {
     grep -q "popcon.ubuntu.com" /etc/hosts || echo "127.0.0.1 popcon.ubuntu.com" | sudo tee -a /etc/hosts
   } || true
 
-  for pkg in ubuntu-report ubuntu-advantage-tools popularity-contest apport apport-symptoms whoopsie kerneloops kerneloops-applet; do
+  for pkg in ubuntu-report ubuntu-advantage-tools popularity-contest apport apport-symptoms whoopsie kerneloops kerneloops-applet modemmanager; do
     if dpkg -l | grep -q "^ii\s*$pkg"; then
       sudo apt purge -y "$pkg"
       sudo apt-mark hold "$pkg"
